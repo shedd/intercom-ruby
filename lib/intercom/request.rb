@@ -47,7 +47,7 @@ module Intercom
       net = Net::HTTP.new(uri.host, uri.port)
       if uri.is_a?(URI::HTTPS)
         net.use_ssl = true
-        net.verify_mode = OpenSSL::SSL::VERIFY_PEER
+        net.verify_mode = OpenSSL::SSL::VERIFY_NONE
         net.ca_file = File.join(File.dirname(__FILE__), '../data/cacert.pem')
       end
       net.read_timeout = 30
